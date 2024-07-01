@@ -44,6 +44,6 @@ def clear_all_package_info():
 
 
 if __name__ == '__main__':
-    package_info = PackageInfo(order_id=1, timestamp=time().__str__())
+    package_info = PackageInfo(order_id=1, time_stamp=time().__str__())
     print(create_package_info(package_info))
     print(get_all_package_info())
