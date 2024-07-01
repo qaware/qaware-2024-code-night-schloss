@@ -4,7 +4,7 @@ This repository is supposed to contain code for the Code Night at the "Gymnasium
 this, a task for a two component microservice was designed, reproducing a simplified version of a warehouse system, 
 composed of a central server instance, which provides for a management of incoming and outgoing packages as well as a
 client instance, which retrieves data from the server and displays it to a client of the warehouse company. For more
-information concerning the task, check out the specifications.
+information concerning the task, check out the [specifications](TASK.md).
 
 ## Installation
 
