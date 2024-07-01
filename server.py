@@ -8,7 +8,7 @@ app = FastAPI()
 app.data = []  # Contains a list of PackageInfo
 
 
-@app.get("", response_description="Hello World!")
+@app.get("/hello_world/", response_description="Hello World!")
 def hello_world():
     """Hello World :D
 
