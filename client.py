@@ -2,48 +2,31 @@ from time import time
 
 import requests
 
-from models import PackageInfo
+from models import Sendung
 
 BASE_URL: str = "http://127.0.0.1:8000/"
 
 
-def create_package_info(data: PackageInfo):
+def create_sendung(neueSendung: Sendung):
     # TODO: How do you react if something goes wrong?
-    response = requests.post(BASE_URL + "packages/", data.json())
+    response = requests.post(BASE_URL + "sendungen/", neueSendung.json())
     return response.status_code
 
 
-def update_package_info(data: PackageInfo):
+def update_sendung(geaenderteSendung: Sendung):
     # TODO: How do you react if something goes wrong?
-    response = requests.put(BASE_URL + "packages/", data.json())
+    response = requests.put(BASE_URL + "sendungen/", geaenderteSendung.json())
     return response.status_code
 
 
-def get_package_info(order_id: int):
-    response = requests.get(BASE_URL + "packages/" + str(order_id))
+def get_sendung(sendung_id: int):
+    response = requests.get(BASE_URL + "sendungen/" + str(sendung_id))
     # TODO: Change the data format so you can work with it
     # TODO: Filter for relevant information
     return response.content
-
-
-def get_all_package_info():
-    response = requests.get(BASE_URL + "packages/")
-    # TODO: Change the data format so you can work with it
-    # TODO: Filter for relevant information
-    return response.content
-
-
-def delete_package_info():
-    # TODO: Implement this method
-    return
-
-
-def clear_all_package_info():
-    # TODO: Implement this method
-    return
 
 
 if __name__ == '__main__':
-    package_info = PackageInfo(order_id=1, time_stamp=time().__str__())
-    print(create_package_info(package_info))
-    print(get_all_package_info())
+    sendung = Sendung(order_id=1, time_stamp=time().__str__())
+    print(create_sendung(sendung))
+    print(get_sendung(1))
