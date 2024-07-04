@@ -24,7 +24,7 @@ python3 -m pip install -r requirements.txt
 2.) Start the uvicorn backend:
 
 ```
-uvicorn server:app --reload
+uvicorn sendungsdatenverwaltung:app --reload
 ```
 
 The reload command is used to be able to update the code and start the application automatically.

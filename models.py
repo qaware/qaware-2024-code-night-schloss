@@ -2,14 +2,14 @@ from pydantic import BaseModel
 from pydantic.class_validators import Optional
 
 
-class PackageInfo(BaseModel):
-    # TODO: Append all desired information
-    order_id: int
-    time_stamp: Optional[str]
+class Sendung(BaseModel):
+    # TODO: Füge relevante Daten hinzu
+    sendung_id: int
+    erfassungszeitpunkt: Optional[str]
 
     def to_dict(self):
         return {
-            # TODO: Append all desired information
-            "order_id": self.order_id,
-            "time_stamp": self.time_stamp
+            # TODO: Füge relevante Daten hinzu
+            "sendung_id": self.sendung_id,
+            "erfassungszeitpunkt": self.erfassungszeitpunkt
         }
