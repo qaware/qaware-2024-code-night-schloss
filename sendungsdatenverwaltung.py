@@ -5,7 +5,7 @@ from starlette.responses import JSONResponse
 from models import Sendung
 
 app = FastAPI()
-app.data = []  # Contains a list of PackageInfo
+app.data = []  # Contains a list of Sendung
 
 
 @app.get("/hello_world/", response_description="Hello World!")
@@ -21,38 +21,38 @@ def hello_world():
 
 @app.post("/sendungen/", response_description="Create sendung information", response_model=Sendung)
 def create(data: Sendung):
-    """Creates package information in the local storage of the server instance
+    """Creates shipment information in the local storage of the server instance
 
-    :param data:    PackageInfo object to store in the storage
-    :return PackageInfo which was stored
+    :param data:    Sendung object to store in the storage
+    :return Sendung which was stored
     """
 
-    # TODO: Check if package was already scanned
+    # TODO: Check if shipment was already scanned
     app.data += [data]
     return JSONResponse(status_code=status.HTTP_201_CREATED, content=data.json())
 
 
-@app.put("/packages/", response_description="Update package information", response_model=Sendung)
+@app.put("/sendungen/", response_description="Update shipment information", response_model=Sendung)
 def update(data: Sendung):
-    """Updates package information in the local storage of the server instance
+    """Updates shipment information in the local storage of the server instance
 
-    :param data:    PackageInfo object to update in the storage
-    :return PackageInfo which was updated
+    :param data:    Sendung object to update in the storage
+    :return Sendung which was updated
     """
 
-    # TODO: Search for a specific package info and update all its data
-    # TODO: What to do, if package does not exist?
+    # TODO: Search for a specific shipment info and update all its data
+    # TODO: What to do, if shipment does not exist?
     return JSONResponse(status_code=status.HTTP_200_OK, content=data.json())
 
 
-@app.get("/packages/{order_id}", response_description="Get package information of particular order id", response_model=Sendung)
-def get(order_id: int):
-    """Retrieves package information specified by the given order_id
+@app.get("/sendungen/{sendung_id}", response_description="Get shipment information of particular sendung id", response_model=Sendung)
+def get(sendung_id: int):
+    """Retrieves shipment information specified by the given order_id
 
-    :param order_id:    Unique identifier of the package information
-    :return PackageInfo corresponding to the given order id
+    :param sendung_id:    Unique identifier of the shipment information
+    :return Sendung corresponding to the given sendung id
     """
 
     # TODO: search for the correct order id and return the result
-    # TODO: What to do, if package does not exist?
+    # TODO: What to do, if shipment does not exist?
     return JSONResponse(status_code=status.HTTP_200_OK, content=None)

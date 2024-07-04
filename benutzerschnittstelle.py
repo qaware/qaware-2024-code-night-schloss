@@ -27,6 +27,6 @@ def get_sendung(sendung_id: int):
 
 
 if __name__ == '__main__':
-    sendung = Sendung(order_id=1, time_stamp=time().__str__())
+    sendung = Sendung(sendung_id=1, erfassungszeitpunkt=time().__str__())
     print(create_sendung(sendung))
     print(get_sendung(1))
