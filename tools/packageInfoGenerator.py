@@ -15,7 +15,7 @@ INFO = ["-", "FRAGILE", "PERISHABLE", "CRITICAL"]
 
 
 def send(data: dict):
-    response = requests.post(BASE_URL + "packages/", str(data).replace("\'", "\""))
+    response = requests.post(BASE_URL + "sendungen/", str(data).replace("\'", "\""))
     return response.status_code, response.content
 
 
@@ -37,14 +37,14 @@ def generate_info() -> dict:
     info = get_random_element(INFO)
 
     return {
-        "order_id": order_id,
-        "time_stamp": time.time().__str__(),
-        "location_start": location_start,
-        "location_end": location_end,
+        "sendung_id": order_id,
+        "erfassungszeitpunkt": time.time().__str__(),
+        "herkunftsort": location_start,
+        "zielort": location_end,
         "status": status,
-        "date_sent": date_sent,
-        "expected_arrival": date_arrival,
-        "package_type": package_type,
+        "sendungsdatum": date_sent,
+        "erwartete_ankunft": date_arrival,
+        "typ": package_type,
         "info": info
     }
 
